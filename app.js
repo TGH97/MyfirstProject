@@ -23,6 +23,19 @@ app.use(
     express.static('public')
 )
 
+app.get("/movies/:id", function(request, response){
+
+    const id = request.params.id
+
+    const movie = data.movies.find(m => m.id == id)
+
+    const model= {
+        movie: movie,
+    }
+
+    response.render('movie.hbs', model)
+})
+
 
 app.listen(3000)
 
