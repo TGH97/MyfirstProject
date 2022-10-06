@@ -8,10 +8,14 @@
 <p>This book get grade {{book.grade}}/10. <br> <b> Description:</b> <br> {{book.description}}</p>
 
 <form action="/delete-books/{{book.id}}" method="POST">
-    <br> <input class="deleteMargin" type="submit" value="Delete">
+    <br> 
+    
+    <input class="deleteMargin" type="submit" value="Delete">
 </form>
 
 <a href="/update-books/{{book.id}}">Update</a>
+
+
 
 
 </div>

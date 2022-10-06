@@ -2,15 +2,17 @@
     <div class="box" >
         <div class="icon"><i class="fa fa-book" aria-hidden="true"></i></div>
         <div class="content">
-        <h3>Update Book</h3><form method="POST">
+        <h3>Update Book</h3>
+        
+        <form method="POST">
     <p>
     <div style="color:aliceblue">
        Title: <input type="text" name="title" value="{{book.title}}" minlength="3">
     </div>
     <div style="color:aliceblue">
-       Description: <input type="string" value="{{book.description }}" name="desc" minlength="5">
+       Description: <input type="string" value="{{book.description }}" name="description" minlength="5">
     </div>
-    <input type="submit" value="Update">
+    <input type="submit" value="update">
 
     </p>
     </div>
