@@ -1,19 +1,29 @@
+<style>
+    .card1books{
+    background-color: #ba4d13;
+    color: white;
+        }
+</style>
+
+
 <div class="container" id="conHeight">
     <div class="box" >
         <div class="content">
 {{#if dbError}}
     <p>Can't display this page right now, try again.</p>
 {{else}}
-<h3><a style="color:aliceblue" href="/create-books">Add a book</a></h3>
+<h3 class="display-1" style="font-size: 36px;"><b>BOOKS</b> </h3>
 
 {{#if books.length}}
     <p> 
-    <ul style="color:aliceblue" >
+    <ul  class="list-group"  >
         {{#each books}}
         <li>
-            <a style="color:aliceblue" href="books/{{id}}">{{title}} </a>({{grade}}/10) </li>
+            <a style="margin-top:5px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="list-group-item list-group-item-action list-group-item-dark" href="books/{{id}}">{{title}} ({{grade}}/10) </a> </li>
         {{/each}}
     </ul>
+    <h3><a class="btn btn-primary" style="margin-top:13px" href="/create-books">Add a book</a></h3>
+
     </p>
 
 {{else}}

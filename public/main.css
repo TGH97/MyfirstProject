@@ -210,13 +210,10 @@
 
   #conHeight .box{
     height: fit-content;
-    width: 400px;
+    width: 500px;
   }
 
-  .deleteMargin{
-    margin-top: 5px;
-    font-size: 15px;
-  }
+
   
   .container .box .content h3{
     margin: 0 0 7px;
@@ -260,13 +257,17 @@
     margin-top: 2%;
     display: flex;
     gap: 1rem;
-    background-color: rgba(51, 51, 51, 0.045);
+    background-color: rgba(15, 13, 13, 0.707);
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
     
   }
+
+
+  
+  
   
   @media  (min-width: 650px){
       .topnav{
@@ -281,7 +282,7 @@
   }
   
   
-  .card {
+  .card1 {
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
@@ -291,7 +292,7 @@
   
   
   
-  .card:hover {
+  .card1:hover {
     background-color: #ddd;
     color: black;
   

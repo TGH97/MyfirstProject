@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="/main.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/font-awesome-4.7.0\css\font-awesome.min.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <title>TestProject</title>
-    
+
 </head>
 
-  <div class="topnav">
-        <a class="card cardhome" href="/home"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a>
-        <a class="card cardnews" href="/contact">Contact</a>
-        <a class="card cardcontact" href="/books">Books</a>
-        <a class="card cardabout" href="#">About</a>
-        
-      </div>
+
+
+<div class="topnav">
+    <a class="card1 card1home" href="/home"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a>
+    <a class="card1 card1contact" href="/contact">Contact</a>
+    <a class="card1 card1books" href="/books">Books</a>
+    <a class="card1 card1about" href="#">about</a>
+    {{#unless isLoggedIn}}
+    <form class="pd-4" action=""> <a href="/login">
+            <div class="form-group" style="margin-top:9px">
+                <label type="submit" class="btn btn-primary">Log In</label>
+            </div>
+        </a>
+    </form>
+
+    {{/unless}}
+    {{#if isLoggedIn}}
+
+    <form class="pd-4" method="post" action="/logout">
+        <div style="margin-top: 9px" class="form-group">
+            <button type="submit" class="btn btn-primary">Log Out</button>
+        </div>
+    </form>
+    {{/if}}
+    </div>
 
 <body>
-    
+
     <div class="background"></div>
-     
+
     <h1 class="grow"><a href="#home"><img src="/logo1.svg"></a></h1>
 
 
+
+
     <main>{{{body}}}</main>
-  
+
 
     <section class="footer">
         <div class="social">
@@ -57,6 +80,7 @@
         </ul>
         <p class="copyright">Talal Ghalioun @ 2022</p>
     </section>
-    
+
 </body>
+
 </html>

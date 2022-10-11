@@ -1,22 +1,32 @@
-<div class="container">
-    <div class="box" >
+<div class="container" id="conHeight">
+    <div class="box">
         <div class="icon"><i class="fa fa-book" aria-hidden="true"></i></div>
-        <div class="content">
-        <h3>Add a Book</h3>
-    <p>
-        <form action="" method="POST">
-             <div style="color:aliceblue">
-             Title: <input class="inputBook" required=""true"" type="text" name="title" id="" minlength="3">
-             </div>
-             <div  style="color:aliceblue">
-             Grade: <input class="inputBook" required=""true"" type="number" name="grade" id=""  max="10">
-             </div>
-             <div style="color:aliceblue">
-             Description: <input class="inputBook" required=""true"" type="string" name="description" id="" minlength="5">
-             </div>
-             <input type="submit" value="Create">
-         </form> 
-    </p>
+        <div class="content" class="form-group">
+            <h3>Add a Book</h3>
+
+            <p>
+            {{#if errors.length}}
+            <p>Couldn't create the book because:</p>
+            {{#each errors}}
+            <h5 style="color:blanchedalmond"><u>{{this}}</u></h5>
+            {{/each}}
+            {{/if}}
+            <form action="" method="POST">
+                <div style="color:aliceblue">
+                    Title: <input class="form-control" value="{{title}}" required="" true"" type="text" name="title"
+                        id="" minlength="3">
+                </div>
+                <div style="color:aliceblue">
+                    Grade: <input class="form-control" value="{{grade}}" required="" true"" type="number" name="grade"
+                        id="" max="10">
+                </div>
+                <div style="color:aliceblue">
+                    Description: <input class="form-control" value="{{description}}" required="" true"" type="string"
+                        name="description" id="" minlength="6">
+                </div>
+                <input style="margin-top: 13px;" class="btn btn-primary" type="submit" value="Create">
+            </form>
+            </p>
+        </div>
     </div>
-</div>
 </div>

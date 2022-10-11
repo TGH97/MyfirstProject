@@ -1,28 +1,30 @@
 {{#if book}}
- 
- <div class="container" id="conHeight">
-    <div class="box" >
+
+<div class="container" id="conHeight">
+    <div class="box">
         <div class="content">
-        <h3>{{book.title}}</h3>
+            <h3>{{book.title}}</h3>
 
-<p>This book get grade {{book.grade}}/10. <br> <b> Description:</b> <br> {{book.description}}</p>
+            <p>This book get grade {{book.grade}}/10. <br> <b> Description:</b> <br> {{book.description}}</p>
 
-<form action="/delete-books/{{book.id}}" method="POST">
-    <br> 
-    
-    <input class="deleteMargin" type="submit" value="Delete">
-</form>
-
-<a href="/update-books/{{book.id}}">Update</a>
-
-
+               
+            {{#if isLoggedIn}}
+                <form action="/delete-books/{{book.id}}" method="POST">
+                    <a class="btn btn-primary" href="/update-books/{{book.id}}">Update</a>
+                    <input class="btn btn-primary" type="submit" value="Delete">
+                </form>
+            {{/if}}
 
 
-</div>
-</div>
+
+
+
+
+        </div>
+    </div>
 </div>
 
 
 {{else}}
-    <p class="book">that book does not exist.</p>
+<p class="book">that book does not exist.</p>
 {{/if}}
