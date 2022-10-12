@@ -141,6 +141,14 @@
     flex-wrap: 1;
     flex-shrink: 1;
   }
+
+  #boxBook{
+    background-image:url("testimage.jpg");
+    background-size: 80%;
+    /* background-image:url("bookIMG.jpg"); */
+
+    
+  }
   
   .container .box .icon{
     position: absolute;
