@@ -3,6 +3,7 @@ const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3");
 const booksRouter = require("./routers/books-router");
+const authRouter = require("./routers/auth-router")
 const expressSession = require("express-session");
 const SQLiteStore = require('connect-sqlite3')(expressSession);
 
@@ -29,9 +30,6 @@ app.use(
   })
 );
 
-const adminUsername = "talal";
-const adminPassword = "123588";
-
 app.use(function (request, response, next) {
   const isLoggedIn = request.session.isLoggedIn;
   response.locals.isLoggedIn = isLoggedIn;
@@ -47,6 +45,7 @@ app.engine(
 
 
 app.use( booksRouter);
+app.use(authRouter);
 
 app.get("/", function (request, response) {
   response.render("start.hbs");
@@ -59,29 +58,6 @@ app.get("/home", function (request, response) {
 app.get("/contact", function (request, response) {
   response.render("contact.hbs");
 });
-
-app.get("/login", function (request, response) {
-  response.render("login.hbs");
-});
-
-app.post("/login", function (request, response) {
-  const enteredUsername = request.body.username;
-  const enteredPassword = request.body.password;
-
-
-  if (enteredUsername == adminUsername && enteredPassword == adminPassword) {
-    request.session.isLoggedIn = true;
-    response.redirect("/books");
-  } else {
-    response.redirect("/login");
-  }
-});
-
-app.post("/logout", function (request, response) {
-  request.session.isLoggedIn = false;
-  response.redirect("/");
-});
-
 
 
 app.listen(3000);
