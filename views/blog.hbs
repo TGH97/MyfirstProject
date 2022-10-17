@@ -1,0 +1,23 @@
+{{#if blog}}
+
+<div class="container" id="conHeight">
+    <div class="box" id="boxBook">
+        <div class="content1">
+            <h3  style="font-family: 'Goudy Bookletter 1911', serif; color:antiquewhite; font-size:42px; display-4 fst-italic" ><b>{{blog.title}}</b></h3>
+
+            <h4 style="color: white;"><b></b> <br> {{blog.content}}</h4>
+
+               
+            {{#if isLoggedIn}}
+                <form action="/delete-blogs/{{blog.id}}" method="POST">
+                    <a class="btn btn-primary" href="/update-blogs/{{blog.id}}">Update</a>
+                    <input class="btn btn-primary" type="submit" value="Delete">
+                </form>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
+{{else}}
+<p class="book">that blog does not exist.</p>
+{{/if}}

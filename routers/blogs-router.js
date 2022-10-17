@@ -1,13 +1,13 @@
 const express = require('express')
-const validations = require('../books-validations')
-const db = require('../booksDatabase')
+const validations = require('../blogs-validations')
+const db = require('../blogsDatabase')
 
 const router = express.Router()
 
 
-  router.get("/books", function (request, response) {
+router.get("/blogs", function (request, response) {
   
-    db.getBooks(function (error, books) {
+    db.getBlogs(function (error, blogs) {
       if (error) {
         console.log(error);
   
@@ -15,57 +15,53 @@ const router = express.Router()
           dbError: true,
         };
   
-        response.render("books.hbs", model);
+        response.render("blogs.hbs", model);
       } else {
         const model = {
-          books,
+            blogs,
           dbError: false,
       };
   
-        response.render("books.hbs", model);
+        response.render("blogs.hbs", model);
       }
     });
   });
 
-  router.get("/books/:id", function (request, response) {
+  router.get("/blogs/:id", function (request, response) {
     const id = request.params.id;
   
-    db.getBooksByItsId(id, function (error, book) {
+    db.getBlogsByItsId(id, function (error, blog) {
       if (error) {
         error.push("Something went wrong")
         const model = {
           error,
           title,
-          description
-        }
-        response.render("/books/" + id, model)
+          content  
+            }
+        response.render("/blogs/" + id, model)
       } else {
         const model = {
-          book,
+            blog
         };
   
-        response.render("book.hbs", model);
+        response.render("blog.hbs", model);
       }
     });
   });
 
-
-
-
-  router.get("/create-books", function (request, response) {
+  router.get("/create-blogs", function (request, response) {
     if (request.session.isLoggedIn) {
-      response.render("create-books.hbs");
+      response.render("create-blogs.hbs");
     } else {
       response.redirect("/login");
     }
   });
 
-  router.post("/create-books", function (request, response) {
+  router.post("/create-blogs", function (request, response) {
     const title = request.body.title;
-    const grade = parseInt(request.body.grade);
-    const description = request.body.description;
+    const content = request.body.content;
   
-    const errors = validations.getValidationErrorsForBooks(title, grade, description);
+    const errors = validations.getValidationErrorsForBlogs(title, content);
   
     if (!request.session.isLoggedIn) {
       errors.push("You have to log in first");
@@ -73,49 +69,47 @@ const router = express.Router()
   
     if (errors.length == 0) {
       
-      db.createBooks(title, grade, description, function (error, thisId) {
+      db.createBlogs(title, content, function (error, thisId) {
         if (error) {
           errors.push("something went wrong")
           const model={
             errors,
             title,
-            grade,
-            description
+            content
           }
-          response.render("create-books.hbs", model)
+          response.render("create-blogs.hbs", model)
         } else {
-          response.redirect("/books/" + thisId);
+          response.redirect("/blogs/" + thisId);
         }
       });
     } else {
       const model = {
         errors,
         title,
-        grade,
-        description,
+        content
       };
-      response.render("create-books.hbs", model);
+      response.render("create-blogs.hbs", model);
     }
   });
 
-  router.get("/update-books/:id", function (request, response) {
+  router.get("/update-blogs/:id", function (request, response) {
     const id = request.params.id;
 
     if (request.session.isLoggedIn) {
-      db.getBooksByItsId(id, function (error, book) {
+      db.getBlogsByItsId(id, function (error, blog) {
         if (error) {
          error.push("something went wrong")
          const model = {
             error,
             title,
-            description
+            content
           };
         } else {
           const model = {
-            book
+            blog
           };
   
-          response.render("update-books.hbs", model);
+          response.render("update-blogs.hbs", model);
         }
       });
     } else {
@@ -123,12 +117,12 @@ const router = express.Router()
     }
   });
 
-  router.post("/update-books/:id", function (request, response) {
+  router.post("/update-blogs/:id", function (request, response) {
     const title = request.body.title;
-    const description = request.body.description;
+    const content = request.body.content;
     const id = request.params.id;
   
-    const errors = validations.getValidationErrorsForUpdateBooks(title, description);
+    const errors = validations.getValidationErrorsForBlogs(title, content);
   
     if (!request.session.isLoggedIn) {
       errors.push("You have to be Logged In to be able to update this");
@@ -136,40 +130,40 @@ const router = express.Router()
   
     if (errors == 0) {
    
-      db.updateBooksByItsId(title, description, id, function (error, book) {
+      db.updateBlogsByItsId(title, content, id, function (error, blog) {
         if (error) {
           console.log(error);
         }
-        response.redirect("/books/" + id);
+        response.redirect("/blogs/" + id);
       });
     } else {
       const model = {
-        book: {
+        blog: {
           id,
           title: title,
-          description: description,
+          content: content,
         },
         errors,
       };
   
-      response.render("update-books.hbs", model);
+      response.render("update-blogs.hbs", model);
     }
   });
 
-  router.post("/delete-books/:id", function (request, response) {
+  router.post("/delete-blogs/:id", function (request, response) {
     const id = request.params.id;
   
 
   
     if (request.session.isLoggedIn) {
-      db.deleteBookByItsId(id, function (error) {
+      db.deleteBlogByItsId(id, function (error) {
         if (error) {
             error.push("Something went wrong");
             const model = {
                 error
             }
         } else {
-          response.redirect("/books");
+          response.redirect("/blogs");
         }
       });
     } else {
@@ -178,3 +172,6 @@ const router = express.Router()
   });
 
 module.exports = router
+
+
+module.exports = router   

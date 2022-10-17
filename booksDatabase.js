@@ -1,3 +1,4 @@
+const { request } = require("express");
 const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database("my-databas.db");
 
@@ -12,6 +13,8 @@ db.run(`
     
         `);
 
+
+
 exports.getBooks=function(callback){
     const query = "SELECT * FROM books ORDER BY id";
     db.all(query, function (error, books) {
@@ -21,8 +24,8 @@ exports.getBooks=function(callback){
 };   
 
 exports.createBooks = function(title, grade, description, callback){
-    const query =
-      "INSERT INTO books (title, grade, description) VALUES (?, ?, ?)";
+  
+    const query = "INSERT INTO books (title, grade, description) VALUES (?, ?, ?)";
     const values = [title, grade, description];
 
     db.run(query, values, function (error) {

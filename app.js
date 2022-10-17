@@ -3,6 +3,7 @@ const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3");
 const booksRouter = require("./routers/books-router");
+const blogssRouter = require("./routers/blogs-router");
 const authRouter = require("./routers/auth-router")
 const expressSession = require("express-session");
 const SQLiteStore = require('connect-sqlite3')(expressSession);
@@ -45,6 +46,7 @@ app.engine(
 
 
 app.use( booksRouter);
+app.use( blogssRouter);
 app.use(authRouter);
 
 app.get("/", function (request, response) {

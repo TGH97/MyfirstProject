@@ -1,0 +1,40 @@
+<style>
+    .card1blogs{
+    background-color: #ba4d13;
+    color: white;
+        }
+</style>
+
+
+<div class="container" id="conHeight">
+    <div class="box" id="boxBook" >
+        <div class="content1">
+{{#if dbError}}
+    <p>Can't display this page right now, try again.</p>
+{{else}}
+<h3 class="display-1" style="font-size: 36px; font-family: Sofia, sans-serif;"><b>Blogs</b> </h3>
+
+{{#if blogs.length}}
+    <p> 
+    <ul  class="list-group"  >
+        {{#each blogs}}
+        <li>
+            <a style="margin-top:5px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="list-group-item list-group-item-action list-group-item-dark" href="blogs/{{id}}">{{title}} </a> </li>
+        {{/each}}
+    </ul>
+    <h3><a class="btn btn-primary" style="margin-top:13px" href="/create-blogs">Add a blog</a></h3>
+
+    </p>
+
+{{else}}
+    <p>we have nothing to show</p>
+    <h3><a class="btn btn-primary" style="margin-top:13px" href="/create-blogs">Add a blog</a></h3>
+
+  </div>
+</div>
+</div>
+{{/if}}
+
+{{/if}}
+
+

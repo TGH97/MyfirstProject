@@ -40,6 +40,11 @@
     margin-left: 35%;
   }
 
+  #style-Li-a{
+    margin-top:5px; 
+    font-family:'Trebuchet MS'
+    }
+
 
   .footer{
     margin-top: 1%;
@@ -106,6 +111,8 @@
     padding: 0 30px;
     
   }
+
+  
   .container{
     display: flex;
    /* border: 10px solid red;*/
@@ -114,6 +121,7 @@
     margin: 200px auto ;
     justify-content: center;  
     flex-wrap: wrap;
+    
   }
   
   /*.container{
@@ -140,9 +148,11 @@
     background-image:url("backgroundbox.jpg");
     flex-wrap: 1;
     flex-shrink: 1;
+    
   }
 
   #boxBook{
+    
     background-image:url("testimage.jpg");
     background-size: 80%;
     /* background-image:url("bookIMG.jpg"); */
@@ -192,7 +202,7 @@
     
   }
   
-  .container .box .content{
+  .container .box .content1{
     position: relative;
     width: auto;
     height: auto;
@@ -203,15 +213,15 @@
     transition: 0.5s;  
   }
   
-  .container .box:hover .content{
+  .container .box:hover .content1{
     top: 30px;
   }
 
-  #conHeight .box .content{
+  #conHeight .box .content1{
     top: 1px;
     font-size: 20px;
   }
-  #conHeight .box:hover .content{
+  #conHeight .box:hover .content1{
     top: 1px;
     font-size: 22px;
   }
@@ -223,13 +233,13 @@
 
 
   
-  .container .box .content h3{
+  .container .box .content1 h3{
     margin: 0 0 7px;
     padding: 0;
     color: #fff;
     font-size: 26px;
   }
-  .container .box .content p{
+  .container .box .content1 p{
     margin: 0;
     padding: 0;
     color: #fff;
@@ -282,10 +292,6 @@
         flex-direction: row;
       
       }
-      .container {
-        /* flex-direction: row; */
-      }
-  
     
   }
   
