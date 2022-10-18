@@ -50,6 +50,7 @@
     margin-top: 1%;
     padding: 28px 0;
     background-color: white;
+    position: relative;
   
   }
   
@@ -258,6 +259,7 @@
     background-size: contain;
   
   }
+
   
   .background{
     background-image:url("backimage.jfif");
@@ -282,10 +284,7 @@
     flex-direction: column;
     
   }
-
-
-  
-  
+    
   
   @media  (min-width: 650px){
       .topnav{

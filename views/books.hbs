@@ -1,38 +1,50 @@
 <style>
-    .card1books{
-    background-color: #ba4d13;
-    color: white;
-        }
+    .card1books {
+        background-color: #ba4d13;
+        color: white;
+    }
 </style>
-
-
+{{#if isLoggedIn}}
+<a id="createHover" class="btn btn-primary" style="margin-bottom:-10%;  margin-left:46.5%;" href="/create-books">Add a book 🡻</a>
+{{/if}}
 <div class="container" id="conHeight">
-    <div class="box" id="boxBook" >
-        <div class="content1">
-{{#if dbError}}
-    <p>Can't display this page right now, try again.</p>
-{{else}}
-<h3 class="display-1" style="font-family: Sofia, sans-serif; font-size: 36px;"><b>BOOKS</b> </h3>
 
-{{#if books.length}}
-    <p> 
-    <ul  class="list-group"  >
+    {{#if dbError}}
+    <p>Can't display this page right now, try again.</p>
+    {{else}}
+    {{!-- <h3 class="display-1" style="font-size: 36px;"><b>BOOKS</b> </h3> --}}
+    {{#if books.length}}
+   
         {{#each books}}
-        <li>
-            <a style="margin-top:5px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="list-group-item list-group-item-action list-group-item-dark" href="books/{{id}}">{{title}} ({{grade}}/10) </a> </li>
-        {{/each}}
-    </ul>
+        <a href="/books/{{id}}">
+
+            <div class="box" id="boxBook" style="height:80%">
+                <div class="content1">
+                    <h3 style="color:antiquewhite; font-family: 'Goudy Bookletter 1911', serif;"><b>{{title}} {{grade}}/10</b></h3>
+
+                    {{#if isLoggedIn}}
+                    <form action="/delete-books/{{book.id}}" method="POST">
+                        <a class="btn btn-primary" href="/update-books/{{book.id}}">Update</a>
+                        <input class="btn btn-primary" type="submit" value="Delete">
+                    </form>
+                    {{/if}}
+
+                </div>
+            </div>
+</a>
+
+            {{/each}}
+        
+
+   
+
+
+
+    {{else}}
+    <p>we have nothing to show</p>
     <h3><a class="btn btn-primary" style="margin-top:13px" href="/create-books">Add a book</a></h3>
 
-    </p>
-
-{{else}}
-    <p>we have nothing to show</p>
-  </div>
-</div>
 </div>
 {{/if}}
 
 {{/if}}
-
-

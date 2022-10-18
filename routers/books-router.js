@@ -67,9 +67,9 @@ const router = express.Router()
   
     const errors = validations.getValidationErrorsForBooks(title, grade, description);
   
-    if (!request.session.isLoggedIn) {
-      errors.push("You have to log in first");
-    }
+     if (!request.session.isLoggedIn) {
+       errors.push("You have to log in first");
+     }
   
     if (errors.length == 0) {
       
