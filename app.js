@@ -4,26 +4,23 @@ const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3");
 const booksRouter = require("./routers/books-router");
 const blogssRouter = require("./routers/blogs-router");
-const commentsRouter = require("./routers/questions-router");
-const authRouter = require("./routers/auth-router")
+const questionsRouter = require("./routers/questions-router");
+const authRouter = require("./routers/auth-router");
 const expressSession = require("express-session");
-const SQLiteStore = require('connect-sqlite3')(expressSession);
+const SQLiteStore = require("connect-sqlite3")(expressSession);
 
 const { request } = require("express");
 const app = express();
 
-
 app.use(express.static("public"));
-
 
 app.use(
   expressSession({
     secret: "asjfnasfasfasafc",
     saveUninitialized: false,
     resave: false,
-    store: new SQLiteStore()
-})
-
+    store: new SQLiteStore(),
+  })
 );
 
 app.use(
@@ -45,11 +42,10 @@ app.engine(
   })
 );
 
-
-app.use( booksRouter);
-app.use( blogssRouter);
+app.use(booksRouter);
+app.use(blogssRouter);
 app.use(authRouter);
-app.use(commentsRouter);
+app.use(questionsRouter);
 
 app.get("/", function (request, response) {
   response.render("start.hbs");
@@ -62,6 +58,5 @@ app.get("/home", function (request, response) {
 app.get("/contact", function (request, response) {
   response.render("contact.hbs");
 });
-
 
 app.listen(3000);
