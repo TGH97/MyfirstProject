@@ -153,7 +153,6 @@ router.get("/blogs", function (request, response) {
   router.post("/delete-blogs/:id", function (request, response) {
     const id = request.params.id;
   
-
   
     if (request.session.isLoggedIn) {
       db.deleteBlogByItsId(id, function (error) {
@@ -172,6 +171,3 @@ router.get("/blogs", function (request, response) {
   });
 
 module.exports = router
-
-
-module.exports = router   

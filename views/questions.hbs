@@ -1,0 +1,47 @@
+<style>
+.card1questions {
+        background-color: #ba4d13;
+        color: white;
+}
+</style>
+
+
+{{#if isLoggedIn}}
+<a id="createHover" class="btn btn-primary" style="margin-bottom:-10%;  margin-left:46.5%;"
+    href="/create-questions">Add a Question</a>
+{{/if}}
+<div class="container" id="conHeight">
+
+    {{#if dbError}}
+    <p>Can't display this page right now, try again.</p>
+    {{else}}
+    {{#if questions.length}}
+
+    {{#each questions}}
+    <a href="/questions/{{id}}">
+
+        <div class="box" id="boxQuestion" style="height:80%">
+            <div class="content1">
+                <h3 style="color:antiquewhite; font-family: 'Goudy Bookletter 1911', serif;"><b>{{question}}
+                        </b></h3>
+
+                {{#if isLoggedIn}}
+                <form action="/delete-books/{{question.id}}" method="POST">
+                    <a class="btn btn-primary" href="/update-question/{{question.id}}">Update</a>
+                    <input class="btn btn-primary" type="submit" value="Delete">
+                </form>
+                {{/if}}
+
+            </div>
+        </div>
+    </a>
+
+    {{/each}}
+
+    {{else}}
+    <p>we have nothing to show</p>
+
+</div>
+{{/if}}
+
+{{/if}}

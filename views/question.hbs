@@ -1,0 +1,25 @@
+{{#if question}}
+
+<div class="container" id="conHeight">
+    <div class="box" id="boxBook">
+        <div class="content1">
+            <h3 style="color:antiquewhite;"><b>{{question.question}}</b></h3>
+
+            <h4 style="color: white;"><br><b> Answer:</b> <br> {{question.answer}}</h4>
+
+               
+            {{#if isLoggedIn}}
+                <form action="/delete-questions/{{question.id}}" method="POST">
+                    <a class="btn btn-primary" href="/update-questions/{{question.id}}">Update</a>
+                    <input class="btn btn-primary" type="submit" value="Delete">
+                </form>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
+
+
+{{else}}
+<p class="book">that book does not exist.</p>
+{{/if}}

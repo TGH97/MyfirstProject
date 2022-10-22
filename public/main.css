@@ -38,6 +38,7 @@
     align-self: center;
     width: 500px;
     margin-left: 35%;
+    
   }
 
   #style-Li-a{
@@ -156,9 +157,15 @@
     
     background-image:url("testimage.jpg");
     background-size: 80%;
-    /* background-image:url("bookIMG.jpg"); */
+    /* background-image:url("bookIMG.jpg"); */    
+  }
 
+  #boxQuestion{
     
+    background-image:url("q&a.jpg");
+    background-size: 107%;
+    opacity: 0.95;
+    /* background-image:url("bookIMG.jpg"); */    
   }
   
   .container .box .icon{
@@ -264,9 +271,9 @@
   .background{
     background-image:url("backimage.jfif");
     background-size: contain;
-    position: fixed;
+    position:fixed;
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     z-index: -1;
     filter:blur(3px);
   }

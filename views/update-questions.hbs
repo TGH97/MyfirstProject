@@ -1,0 +1,31 @@
+<div class="container" id="conHeight">
+    <div class="box">
+        <div class="icon"><i class="fa fa-book" aria-hidden="true"></i></div>
+        <div class="content1 form-group">
+            <h3>Update Questions/Answer</h3>
+
+            <form method="POST">
+                <p>
+                    {{#if errors.length}}
+                <p>Couldn't update the Questions/Answer because:</p>
+                {{#each errors}}
+                <h5 style="color:blanchedalmond"><u>{{this}}</u></h5>
+                {{/each}}
+                </ul>
+                {{/if}}
+                <div style="color:aliceblue">
+                    Question: <input class="form-control" type="text" name="question" value="{{question.question}}"
+                     minlength="3">
+                </div>
+                <div style="color:aliceblue">
+                    Answer: <input class="form-control" type="string" value="{{question.answer }}"
+                        name="answer" minlength="5">
+                </div>
+                <input class="btn btn-primary" style="margin-top: 13px;" type="submit" value="update">
+
+                </p>
+        </div>
+    </div>
+</div>
+
+</form>

@@ -22,15 +22,16 @@
             <a style="margin-top:5px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="list-group-item list-group-item-action list-group-item-dark" href="blogs/{{id}}">{{title}} </a> </li>
         {{/each}}
     </ul>
-    
+    {{#if isLoggedIn}}
     <h3><a class="btn btn-primary" style="margin-top:13px" href="/create-blogs">Add a blog</a></h3>
-
+    {{/if}}
     </p>
 
 {{else}}
     <p>we have nothing to show</p>
+    {{#if isLoggedIn}}
     <h3><a class="btn btn-primary" style="margin-top:13px" href="/create-blogs">Add a blog</a></h3>
-
+    {{/if}}
   </div>
 </div>
 </div>

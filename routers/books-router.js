@@ -158,9 +158,7 @@ const router = express.Router()
 
   router.post("/delete-books/:id", function (request, response) {
     const id = request.params.id;
-  
-
-  
+    
     if (request.session.isLoggedIn) {
       db.deleteBookByItsId(id, function (error) {
         if (error) {

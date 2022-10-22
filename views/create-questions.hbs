@@ -1,0 +1,28 @@
+<div class="container" id="conHeight">
+    <div class="box">
+        <div class="icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
+        <div class="content1" class="form-group">
+            <h3>Add a Q/A</h3>
+
+            <p>
+            {{#if errors.length}}
+            <p>Couldn't create the question because:</p>
+            {{#each errors}}
+            <h5 style="color:blanchedalmond"><u>{{this}}</u></h5>
+            {{/each}}
+            {{/if}}
+            <form action="" method="POST">
+                <div style="color:aliceblue">
+                    Question: <input class="form-control" value="{{question}}" required="" true"" type="string"
+                        name="question" id="" minlength="6">
+                </div>
+                <div style="color:aliceblue">
+                    Answer: <input class="form-control" value="{{answer}}" required="" true"" type="string"
+                        name="answer" id="" minlength="6">
+                </div>
+                <input style="margin-top: 13px;" class="btn btn-primary" type="submit" value="Create">
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
